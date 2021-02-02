@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 #include "bubble.h"
 #include "selection.h"
 #include "insertion.h"
@@ -11,17 +12,26 @@ int main(int argc, char *argv[]){
          printf("argv %d: %s\n",i,argv[i]); 
   }
 
-  N=argc-1;
+  N=argc-2;
 
   int *a;
   a=(int*) malloc(sizeof(int)*N);
 
-  for(i=1;i<argc;i++){
-        a[i-1]=atoi(argv[i]);
+  for(i=2;i<argc;i++){
+        a[i-2]=atoi(argv[i]);
   }
 
-  //bubble(a,N);
- // selection(a,N);
- insertion(a,N);
-  return 0;
+    if(strcmp("bubble",argv[1])==0){
+      bubble(a,N);
+    }
+    if(strcmp("selection",argv[1])==0){
+      selection(a,N);
+    }
+    if(strcmp("insertion",argv[1])==0){
+      insertion(a,N);
+    }
+    return 0;
 }
+  //bubble(a,N);
+  //selection(a,N);
+  //insertion(a,N);

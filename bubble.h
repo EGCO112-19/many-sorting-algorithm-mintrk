@@ -18,24 +18,27 @@ void display(int value[], int N){
 
 
 void bubble(int a[], int N){
+    int sorted;
     int i;
     int j;
-    int sorted;
-  for(i=N-1;i>0;i--){
-    sorted=0;
-    for(j=0;j<i;j++){
-        if(a[j]>a[j+1]) {// decending
+    int check=0;
+    for (i = N - 1; i > 0; i--)
+   {
+       sorted = 0;
+       for (j = 0; j < i; j++){
+        if(a[j]>a[j+1]) // decending
+        {
             swap(&a[j],&a[j+1]);
-            sorted=1;
+            sorted = 1;
+            display(a,N);
         }
-        display(a,N);
+       }
+       if (sorted==0) break;
+       printf("\t ===end of round %d===\n\n",check+1);
+       check++;
     }
-    
-    printf("\t===end of round %d===\n",i);
-    if (sorted==0) break;
-  }
-    
 }
+
 
 
 #endif /* bubble_h */
